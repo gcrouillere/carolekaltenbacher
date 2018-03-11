@@ -1,19 +1,20 @@
 /* -------------------------------------
  * Fonts type
  * ------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Raleway:400,100,300,700,500");
+// Open+Sans:400,300,700
 // @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700|Nanum+Myeongjo:400,700,800");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
+$base-font: "Montserrat", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
  //Main :
-$primary:  #0FB79B;
-$primary-opacified: rgba(15, 183, 155, 0.3);
-$navbar: linear-gradient(to right, #fefefe, #0FB79B);
-$h2card: #0FB79B;
+$primary: #027F90;
+$primary-opacified: rgba(12, 94, 173, 0.3);
+$navbar: linear-gradient(to right, #fefefe, #D8E0EB);
+$h2card: #4C5B72;
 $body: #fbfbfb;
 $footer: #141E30;
 $discount: #FFD10C;
@@ -21,7 +22,8 @@ $home-text-shadow: #333333;
 $home-font-color: white;
 
 //Ceramiques :
-$filter-title: #666;
+$filter-title: black;
+$backgound-filter: #D8E0EB ;
 $link-laptop: black;
 $card-text: black;
 
