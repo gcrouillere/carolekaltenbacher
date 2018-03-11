@@ -4,8 +4,12 @@
     <div class="contact">
       <div class="connect">
         <h3>Gardons le contact</h3>
-        <h4>Facebook</h4>
-        <h4>Instagram</h4>
+        <%= link_to "https://www.facebook.com/Carole-K-C%C3%A9ramique-443123555729697", class: "connect-link", target: "blank" do %>
+          <h4>Facebook</h4>
+        <% end %>
+        <%= link_to "https://www.instagram.com/carolekceramique/?hl=fr", class: "connect-link", target: "blank" do %>
+          <h4>Instagram</h4>
+        <% end %>
         <div class="hidden-xs hidden-sm hidden-md">
           <% if user_signed_in? %>
             <% if current_user.admin %>
@@ -25,7 +29,7 @@
       </div>
       <div class="CGV">
         <h3>Infos</h3>
-        <%= link_to info_path, class: "connect-link" do %>
+        <%= link_to cgv_path, class: "connect-link" do %>
           <h4>CGV</h4>
         <% end %>
         <%= link_to info_path, class: "connect-link" do %>

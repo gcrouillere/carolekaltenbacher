@@ -19,7 +19,8 @@ class User < ApplicationRecord
   has_attachment :avatarphoto
   has_attachment :cityphoto
   has_attachment :logophoto
-  has_attachments :homerightphotos, maximum: 2
+  has_attachment :homerightphoto1
+  has_attachment :homerightphoto2
   has_attachment :darktheme1photo
   has_attachment :darktheme2photo
   has_attachment :darktheme3photo

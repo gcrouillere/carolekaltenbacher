@@ -1,10 +1,10 @@
-<% @homerightphoto1 = image_path ENV['HOMERIGHTPHOTO'] %>
-<% @homerightphoto2 = image_path ENV['HOMERIGHTPHOTO'] %>
+<% @homerightphoto1 = image_path ENV['HOMERIGHTPHOTO1'] %>
+<% @homerightphoto2 = image_path ENV['HOMERIGHTPHOTO2'] %>
 <% if @admin %>
-  <% if  @admin.homerightphotos[0].present? %>
-    <% @homerightphoto1 = cl_image_path @admin.homerightphotos[0].path %>
+  <% if  @admin.homerightphoto1.present? %>
+    <% @homerightphoto1 = cl_image_path @admin.homerightphoto1.path %>
   <% end %>
-  <% if  @admin.homerightphotos[1].present? %>
-    <% @homerightphoto2 = cl_image_path @admin.homerightphotos[1].path %>
+  <% if  @admin.homerightphoto2.present? %>
+    <% @homerightphoto2 = cl_image_path @admin.homerightphoto2.path %>
   <% end %>
 <% end %>

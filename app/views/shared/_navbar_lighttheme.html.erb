@@ -1,9 +1,18 @@
 <!-- Right Navigation LAPTOP -->
-<div class="navbar-laptop-lighttheme hidden-xs hidden-sm opacity-on-laptop">
+<% opacity_addition = "" %>
+<% nav_bar_mobility = "nav-mobile" %>
+<% if  params[:controller] == "lessons" %>
+  <% opacity_addition = "opacity-on-laptop" %>
+  <% nav_bar_mobility = "nav-fixe" %>
+<% end %>
+<div class="navbar-laptop-lighttheme hidden-xs hidden-sm <%= opacity_addition %> <%= nav_bar_mobility %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
     <%= render 'shared/logo_pic' %>
     <%= @logositepictag %>
+    <% unless  params[:controller] == "lessons" %>
+      <span>Carole Kaltenbacher</span>
+    <% end %>
   <% end %>
 
   <!-- Different navigation if login or not -->
@@ -25,7 +34,7 @@
         <%= link_to new_lesson_path do %>
           <span>Réserver un stage</span>
         <% end %>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
@@ -54,7 +63,7 @@
         <%= link_to new_lesson_path do %>
           <span>Réserver un stage</span>
         <% end %>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
@@ -88,7 +97,7 @@
       <%= link_to new_lesson_path do %>
         <span>Stage</span>
       <% end %>
-      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
       <a href="#" id="lighttheme-filter-search-mobile"><%= image_tag "search.svg", class: "searchimg"%></a>
       <% if session[:order].present? %>
         <% if Order.where(id: session[:order]).present? %>

@@ -42,11 +42,18 @@ $(document).on('ready', function() {
     $('.stagepic .photo-button').removeClass('hidden');
   });
 
-  $('.homerightphotos .attachinary_container').on('click', function(e){
-    $('.homerightphotos .photo-button').removeClass('hidden');
+  $('.homerightphoto1 .attachinary_container').on('click', function(e){
+    $('.homerightphoto1 .photo-button').removeClass('hidden');
   });
-  $('.homerightphotos input').on('click', function(e){
-    $('.homerightphotos .photo-button').removeClass('hidden');
+  $('.homerightphoto1 input').on('click', function(e){
+    $('.homerightphoto1 .photo-button').removeClass('hidden');
+  });
+
+  $('.homerightphoto2 .attachinary_container').on('click', function(e){
+    $('.homerightphoto2 .photo-button').removeClass('hidden');
+  });
+  $('.homerightphoto2 input').on('click', function(e){
+    $('.homerightphoto2 .photo-button').removeClass('hidden');
   });
 
   $('.darktheme1photo .attachinary_container').on('click', function(e){
