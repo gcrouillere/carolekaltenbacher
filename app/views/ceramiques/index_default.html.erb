@@ -1,10 +1,9 @@
 <% content_for(:description) do %>
-Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne de vos produits.
+Mes céramiques sont en XXX. Le décor est composé de XXX. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des XXX ...
 <% end %>
 <% content_for(:title_tag) do %>
-  Liste des produits à vendre
+  Les céramiques artisanales à vendre dans la boutique de Carole Kaltenbacher
 <% end %>
-
 <% if @front_offer %>
   <% content_for(:meta_image) do %>
     <%= cl_image_path @front_offer.ceramiques.first.photos[0].path %>
@@ -25,7 +24,7 @@ Site de e-commerce configurable. Créez votre compte et visualisez votre futur s
       <%= render 'shared/general_info_bubble' %>
     </div>
     <div class="h1-index mobile hidden-md hidden-lg">
-      <h1>Les créations uniques</h1>
+      <h1>Céramiques : les pièces uniques en vente sur le site</h1>
       <hr>
     </div>
   <% elsif params[:offer].present? %>
@@ -35,7 +34,7 @@ Site de e-commerce configurable. Créez votre compte et visualisez votre futur s
     </div>
   <% else %>
     <div class="h1-index hidden-xs hidden-sm">
-      <h1>Les créations uniques : <%= ENV['MODEL']%></h1>
+      <h1>Céramiques : les pièces uniques en vente sur le site</h1>
       <hr>
     </div>
     <div class="h1-index mobile hidden-md hidden-lg">
