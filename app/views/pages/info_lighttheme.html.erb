@@ -27,6 +27,47 @@
             </div>
         <% end %>
       </div>
+      <div class="wrapper-lighttheme">
+        <% if user_signed_in? && current_user.admin %>
+          <% article_typing("infogauche", "horizontal", "markdown2", "live-text2", "input2") %>
+          <% @markdown = @markdown2 %>
+          <%= render 'shared/articletyping' %>
+        <% else %>
+            <div id="live-text">
+              <% article_display("infogauche", "horizontal") %>
+              <%= @markdown.html_safe %>
+            </div>
+        <% end %>
+        <div class="info-4">
+          <%= photo_update('infophotos', '', '', '', '', '.infophotos', "Mise à jour 4 photos info")%>
+          <div class="info12">
+            <div class="info1">
+              <style>
+                .info1 {
+                  background-image: url(<%= @lightthemeinfophotopath1 %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+            <%= cl_image_tag @lightthemeinfophotopath2 %>
+          </div>
+          <div class="info34">
+            <div class="info3">
+              <style>
+                .info3 {
+                  background-image: url(<%= @lightthemeinfophotopath3 %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+            <%= cl_image_tag @lightthemeinfophotopath4 %>
+          </div>
+        </div>
+      </div>
 
       <div class="localisation">
         <%= photo_update('cityphoto', 15, '', '', 15, '.citypic', "Mise à jour photo ville")%>
@@ -40,6 +81,40 @@
    <div class="col-xs-12 hidden-md hidden-lg mobile-info">
       <div class="wrapper-mobile-lightheme">
         <div class="img-avatar-mobile"><%= @avatarpictagmobile %></div>
+        <%= @markdown.html_safe %>
+      </div>
+
+        <div class="info-4-mobile">
+          <div class="info12">
+            <div class="info1">
+              <style>
+                .info1 {
+                  background-image: url(<%= @lightthemeinfophotopath1 %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+            <%= cl_image_tag @lightthemeinfophotopath2 %>
+          </div>
+          <div class="info34">
+            <div class="info3">
+              <style>
+                .info3 {
+                  background-image: url(<%= @lightthemeinfophotopath3 %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+            <%= cl_image_tag @lightthemeinfophotopath4 %>
+          </div>
+        </div>
+
+      <div class="wrapper-mobile-lightheme">
+        <% article_display("infogauche", "horizontal") %>
         <%= @markdown.html_safe %>
       </div>
 

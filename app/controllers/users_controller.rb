@@ -59,7 +59,8 @@ class UsersController < ApplicationController
       :darktheme3photo,
       :darktheme4photo,
       :homerightphoto1,
-      :homerightphoto2
+      :homerightphoto2,
+      infophotos: []
     )
   end
 

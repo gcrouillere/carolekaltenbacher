@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_attachment :darktheme2photo
   has_attachment :darktheme3photo
   has_attachment :darktheme4photo
+  has_attachments :infophotos, maximum: 4, dependent: :destroy
 
   def display_name
     return self.email

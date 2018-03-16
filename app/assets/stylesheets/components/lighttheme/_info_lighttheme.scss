@@ -62,6 +62,65 @@
   }
 }
 
+.info-4 {
+  width: 50%;
+  margin-bottom: 10px;
+  .info12 {
+    display: flex;
+    img {
+      width: 50%;
+      height: 50%;
+      border-radius: 0 $project-border-radius 0 0;
+    }
+    .info1 {
+      width: 50%;
+      border-radius: $project-border-radius 0 0 0;
+    }
+  }
+  .info34 {
+    display: flex;
+    img {
+      width: 50%;
+      height: 50%;
+      border-radius: 0 0 $project-border-radius 0;
+    }
+    .info3 {
+      width: 50%;
+      border-radius: 0 0 0 $project-border-radius;
+    }
+  }
+}
+
+.info-4-mobile {
+  padding: 0 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  .info12 {
+    display: flex;
+    img {
+      width: 50%;
+      height: 50%;
+      border-radius: 0 $project-border-radius 0 0;
+    }
+    .info1 {
+      width: 50%;
+      border-radius: $project-border-radius 0 0 0;
+    }
+  }
+  .info34 {
+    display: flex;
+    img {
+      width: 50%;
+      height: 50%;
+      border-radius: 0 0 $project-border-radius 0;
+    }
+    .info3 {
+      width: 50%;
+      border-radius: 0 0 0 $project-border-radius;
+    }
+  }
+}
+
 .body-lighttheme {
   .localisation {
     border-radius: 1px;

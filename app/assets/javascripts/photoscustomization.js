@@ -84,4 +84,11 @@ $(document).on('ready', function() {
     $('.darktheme4photo .photo-button').removeClass('hidden');
   });
 
+  $('.infophotos .attachinary_container').on('click', function(e){
+    $('.infophotos .photo-button').removeClass('hidden');
+  });
+  $('.infophotos input').on('click', function(e){
+    $('.infophotos .photo-button').removeClass('hidden');
+  });
+
 });

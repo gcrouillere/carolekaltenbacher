@@ -7,6 +7,7 @@
 
 <%= render 'shared/home_pics' %>
 <%= render 'shared/home_right_pics' %>
+<%= render 'shared/lighttheme_photo_loading'%>
 
   <div class="homeimagescontainer hidden-xs">
     <%= photo_update('productphoto', 250, '', '', 30, '.homepic', "Mise à jour photo accueil gauche")%>
@@ -28,7 +29,7 @@
       <%= image_tag @homerightphoto2 %>
     </div>
   </div>
-  <div class="homeimagescontainer-mobile">
+  <div class="homeimagescontainer-mobile hidden-md hidden-lg hidden-sm">
     <div class="imagehomeleft-mobile hidden-sm hidden-md hidden-lg">
       <%= image_tag @homepicpath %>
       <%= image_tag @homerightphoto1 %>
@@ -57,6 +58,8 @@
       <%= @markdown.html_safe %>
     </div>
   </div>
+
+  <%= render  'shared/ceramique_cards_lighttheme'%>
 
   <%= render 'shared/subscribe' %>
 

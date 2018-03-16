@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :contact, :cgv, :google906057532e2dbb7e, :robots]
 
   def home
+    @ceramiques = Ceramique.last(4)
     @dev_redirection = "https://www.creermonecommerce.fr/"
     render "home_#{@active_theme.name}"
   end
