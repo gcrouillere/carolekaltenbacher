@@ -28,6 +28,14 @@
   }
 }
 
+.ceramiques-in-home {
+  @media all and (max-width: 800px) and (min-width: 600px) {
+    .lighttheme-ceramiquecard-col:last-child {
+      display: none;
+    }
+  }
+}
+
 .homeimagescontainer-mobile {
   width: 100%;
   padding: 0px 20px 0 20px;
