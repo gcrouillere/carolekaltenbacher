@@ -10,10 +10,14 @@
     .body-stage .content-darktheme .form-control {
       border-radius: 1px;
     }
-    .form-group {
+    .new_lesson {
       select {
         -webkit-appearance: none;
         -webkit-border-radius: 1px;
+        width: 100%;
+        height: 36px;
+        margin-bottom: 15px;
+        padding: 6px 12px;
       }
     }
     .social-buttons {

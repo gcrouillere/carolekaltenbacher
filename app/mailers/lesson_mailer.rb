@@ -2,7 +2,7 @@ class LessonMailer < ApplicationMailer
 
   def mail_user_after_lesson_destroy(lesson)
     @lesson = lesson
-    @closest_start = Findcloseststart.new(@lesson).closest_start(@lesson)
+    # @closest_start = Findcloseststart.new(@lesson).closest_start(@lesson)
     if @lesson.confirmed
       mail(to: @lesson.user.email, subject: "Annulation de votre stage chez #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")
     else

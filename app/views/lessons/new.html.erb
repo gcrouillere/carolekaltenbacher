@@ -1,5 +1,5 @@
 <% content_for(:description) do %>
-  Réserver un stage de poterie avec Carole Kaltenbacher. Stages à la journée. Payer les arrhes en ligne.
+  Réserver un stage de poterie avec Carole Kaltenbacher. Stages pour 1 ou plusieurs journées. Payer les arrhes en ligne.
 <% end %>
 <% content_for(:title_tag) do %>
   Réserver un stage de poterie avec Carole Kaltenbacher.
@@ -18,24 +18,20 @@
     <div class="hidden-xs col-sm-offset-2 col-sm-8">
       <div class="stage">
         <%= facebook_share_id("facebookshare") %>
-        <%= simple_form_for @lesson do |f| %>
-          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Nombre de participants", selected: ENV['MINBOOKING'].to_i %>
-          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> 1er jour de stage</label>
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-              <span class="input-group-addon">
-                <span class="fa fa-calendar-o"></span>
-              </span>
-              <input type='text' class="form-control" name="lesson[start]" placeholder="Cliquez sur l'icône calendrier pour sélectionner une date"/>
+        <% if @input_dates_collection.size > 0 %>
+          <%= simple_form_for @lesson do |f| %>
+            <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Sélectionnez le nombre de participants", selected: ENV['MINBOOKING'].to_i %>
+            <label for="calendar_update_ref">* Sélectionnez le stage dans la liste</label>
+            <%= f.select :calendar_update_ref, options_for_select(@input_dates_collection), class: "date-select" %>
+            <% if user_signed_in? %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+            <div class="submit-div-stage">
+              <%= f.submit "demander une réservation", class: "btn btn-primary stage-btn" %>
             </div>
-          </div>
-          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], label: "Durée en jours", selected: ENV['MINDURATION'] %>
-          <% if user_signed_in? %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
           <% end %>
-          <div class="submit-div-stage">
-            <%= f.submit "demander une réservation", class: "btn btn-primary stage-btn" %>
-          </div>
+        <% else %>
+          <h2 class="no-stage">Désolé, il n'y a aucun stage ouvert à la réservation pour le moment.</h2>
         <% end %>
         <div class="text-container">
           <div class="texte-stage">
@@ -56,24 +52,20 @@
     <div class="hidden-sm hidden-md hidden-lg col-xs-12">
       <div class="stage-mobile">
         <%= facebook_share_id("facebooksharemobile") %>
-        <%= simple_form_for @lesson do |f| %>
-          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Nombre de participants", selected: ENV['MINBOOKING'].to_i %>
-          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> 1er jour de stage</label>
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker2'>
-              <span class="input-group-addon">
-                <span class="fa fa-calendar-o"></span>
-              </span>
-              <input type='text' class="form-control" name="lesson[start]" placeholder="JJ.MM.AAAA"/>
+        <% if @input_dates_collection.size > 0 %>
+          <%= simple_form_for @lesson do |f| %>
+            <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Sélectionnez le nombre de participants", selected: ENV['MINBOOKING'].to_i %>
+            <label for="calendar_update_ref">* Sélectionnez le stage dans la liste</label>
+            <%= f.select :calendar_update_ref, options_for_select(@input_dates_collection), class: "date-select" %>
+            <% if user_signed_in? %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+            <div class="submit-div-stage">
+              <%= f.submit "demander une réservation", class: "btn btn-primary stage-btn" %>
             </div>
-          </div>
-          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], label: "Durée en jours", selected: ENV['MINDURATION'] %>
-          <% if user_signed_in? %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
           <% end %>
-          <div class="submit-div-stage">
-            <%= f.submit "demander une réservation", class: "btn btn-primary stage-btn" %>
-          </div>
+        <% else %>
+          <h2 class="no-stage">Désolé, il n'y a aucun stage ouvert à la réservation pour le moment.</h2>
         <% end %>
         <div class="wrapper">
           <div class="texte-stage">
@@ -88,39 +80,6 @@
 </div>
 
 <% content_for(:after_js) do %>
-  <script>
-    $(document).on('ready', function() {
-
-      var confirmed_course_js_format = <%= raw @confirmed_course_js_format%>
-      var jsArray = <%= @first_possible_day.to_json.html_safe %>
-
-      $('#datetimepicker1, #datetimepicker2').datetimepicker({
-        disabledDates: <%= raw @disabled_dates%>,
-        format: 'DD.MM.YYYY',
-        minDate: jsArray[0],
-        locale: moment.locale('fr')
-        }).on('dp.show dp.change dp.update', function () {
-          $('.tooltip-inner').remove();
-          $('.tooltip-arrow').remove();
-
-          $('[data-day]').each(function(){
-            $(this).addClass('current-data-day');
-            var currentdate = $(this).data('day');
-
-            confirmed_course_js_format.forEach(function(course) {
-              if (currentdate == course) {
-                $('.current-data-day').addClass('available-course')
-                $('.current-data-day').attr("title", "Cours confirmé, places disponibles");
-                $('.current-data-day').data("container", "body");
-                $('.current-data-day').tooltip()
-              }
-            });
-
-            $('.current-data-day').removeClass('current-data-day')
-          });
-        });
-    });
-  </script>
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",

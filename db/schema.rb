@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201130513) do
+ActiveRecord::Schema.define(version: 20180318170904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,12 +74,13 @@ ActiveRecord::Schema.define(version: 20180201130513) do
   end
 
   create_table "calendarupdates", force: :cascade do |t|
-    t.datetime "period_start", null: false
-    t.datetime "period_end",   null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "lesson_id"
-    t.index ["lesson_id"], name: "index_calendarupdates_on_lesson_id", using: :btree
+    t.datetime "period_start",             null: false
+    t.datetime "period_end",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.boolean  "available"
+    t.integer  "price_cents",  default: 0, null: false
+    t.integer  "capacity"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -116,13 +117,15 @@ ActiveRecord::Schema.define(version: 20180201130513) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.datetime "start",                      null: false
-    t.integer  "duration",                   null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "confirmed",  default: false, null: false
-    t.integer  "student",                    null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "start",                             null: false
+    t.integer  "duration",                          null: false
+    t.integer  "user_id",                           null: false
+    t.boolean  "confirmed",         default: false, null: false
+    t.integer  "student",                           null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "calendarupdate_id"
+    t.index ["calendarupdate_id"], name: "index_lessons_on_calendarupdate_id", using: :btree
     t.index ["user_id"], name: "index_lessons_on_user_id", using: :btree
   end
 
@@ -188,9 +191,9 @@ ActiveRecord::Schema.define(version: 20180201130513) do
   add_foreign_key "articles", "users"
   add_foreign_key "basketlines", "ceramiques"
   add_foreign_key "basketlines", "orders"
-  add_foreign_key "calendarupdates", "lessons"
   add_foreign_key "ceramiques", "categories"
   add_foreign_key "ceramiques", "offers"
+  add_foreign_key "lessons", "calendarupdates"
   add_foreign_key "lessons", "users"
   add_foreign_key "orders", "lessons"
   add_foreign_key "orders", "users"

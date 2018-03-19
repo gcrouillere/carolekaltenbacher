@@ -21,16 +21,18 @@
         <%= link_to info_path do %>
           <span>Infos</span>
         <% end %>
-        <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
         <%= link_to new_lesson_path do %>
           <span>Réserver un stage</span>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <span><i class="fa fa-sign-out"></i> Se déconnecter</span>
         <% end %>
         <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
               <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+                <span><i class="fa fa-shopping-cart"></i></span>
               <% end %>
             <% end %>
           <% end %>
@@ -50,16 +52,18 @@
         <%= link_to info_path do %>
           <span>Infos</span>
         <% end %>
-        <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
         <%= link_to new_lesson_path do %>
           <span>Réserver un stage</span>
+        <% end %>
+        <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
+          <span><i class="fa fa-sign-in"></i> Se connecter</span>
         <% end %>
         <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
               <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+                <span><i class="fa fa-shopping-cart"></i></span>
               <% end %>
             <% end %>
           <% end %>
@@ -89,12 +93,11 @@
         <span>Stage</span>
       <% end %>
       <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
-      <a href="#" id="lighttheme-filter-search-mobile"><%= image_tag "search.svg", class: "searchimg"%></a>
       <% if session[:order].present? %>
         <% if Order.where(id: session[:order]).present? %>
           <% if Order.where(id: session[:order]).first.state != "lost" %>
             <%= link_to order_path(Order.find(session[:order])) do %>
-              <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+              <span><i class="fa fa-shopping-cart"></i></span>
             <% end %>
           <% end %>
         <% end %>
