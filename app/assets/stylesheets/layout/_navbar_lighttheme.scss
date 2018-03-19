@@ -20,6 +20,12 @@
   }
 }
 
+@media all and (max-width: 800px) {
+  .container-lighttheme-show {
+    margin-top: -40px !important;
+  }
+}
+
 .navbar-laptop-lighttheme {
   background: white;
   height: 100px;
