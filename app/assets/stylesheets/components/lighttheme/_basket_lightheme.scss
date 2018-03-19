@@ -21,6 +21,15 @@
         text-align: center;
         width: 350px;
       }
+      th:nth-child(2) {
+        width: 600px;
+      }
+      @media all and (max-width: 500px) {
+        th:nth-child(2) {
+          width: 118px !important;
+        }
+      }
+
        th:nth-child(4) {
         text-align: right;
       }
