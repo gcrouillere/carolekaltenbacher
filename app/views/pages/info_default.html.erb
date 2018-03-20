@@ -48,9 +48,6 @@
         <div id="map-mobile"></div>
       </div>
 
-      <%= link_to ceramiques_path, class: "back-in-home-mobile" do %>
-        <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL']%></span>
-      <% end %>
     </div>
 
   </div>
@@ -65,7 +62,7 @@
           {
             lat: <%= ENV['LAT'].to_f %>,
             lng: <%= ENV['LNG'].to_f %>,
-            infowindow: "<%= "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>"
+            infowindow: "<%= "Les céramiques de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>"
           }
         ]);
         handler1.bounds.extendWith(markers1);
@@ -91,7 +88,7 @@
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
-      "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+      "name": "Les <%="céramiques de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
       "description": "Online craft store",
       "openingHours": "Mo-Fr 09:00-18:00",
       "telephone": "<%= ENV['TELEPHONE']%>",

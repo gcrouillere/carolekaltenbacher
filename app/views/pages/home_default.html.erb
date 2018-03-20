@@ -2,7 +2,7 @@
   Vente de céramiques et poteries artisanales réalisées par Carole Kaltenbacher. Découvrez dans la boutique mes créations aux motifs et matières uniques. Vous y retrouverez des céramiques utilitaires et décoratives. Mes créations sont en XXX et XXX.
 <% end %>
 <% content_for(:title_tag) do %>
-  Vente en ligne des céramiques uniques de Carole Kaltenbacher.
+  Vente en ligne des céramiques uniques de CaroleK.ceramique.
 <% end %>
 
 <%= render 'shared/home_pics' %>
@@ -82,7 +82,7 @@
   {
     "@context": "http://schema.org",
     "@type": "ArtGallery",
-    "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+    "name": "Les <%="céramiques de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
     "description": "Online craft store",
     "openingHours": "Mo-Fr 09:00-18:00",
     "telephone": "<%= ENV['TELEPHONE']%>",

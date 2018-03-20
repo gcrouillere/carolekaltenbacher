@@ -56,11 +56,7 @@ class LessonsController < ApplicationController
   def available_dates_to_input
     calendarupdates = Calendarupdate.where(available: true).order(period_start: :asc)
     calendarupdates = calendarupdates.map do |calendarupdate|
-      if calendarupdate.period_start == calendarupdate.period_end
-        ["Stage le #{l(calendarupdate.period_start, format: '%d %B %Y')}", calendarupdate.id]
-      else
-        ["Stage du #{l(calendarupdate.period_start, format: '%d %B %Y')} au #{l(calendarupdate.period_end, format: '%d %B %Y')}", calendarupdate.id]
-      end
+      [calendarupdate.name, calendarupdate.id]
     end
     return calendarupdates
   end

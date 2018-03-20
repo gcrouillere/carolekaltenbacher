@@ -16,7 +16,7 @@ ActiveAdmin.register Lesson do
 
     #Paramètres pour index_as_calendar
     {
-      title: "#{lesson.duration} jours - #{lesson.student} personnes - Confirmée: #{confirmation} - Payée: #{payment}",
+      title: "#{lesson.calendarupdate.name} - #{lesson.student} personnes - Confirmée: #{confirmation} - Payée: #{payment}",
       start: lesson.start,
       end: (lesson.start + lesson.duration.day),
       url: "#{admin_lesson_path(lesson)}",
@@ -110,7 +110,7 @@ ActiveAdmin.register Lesson do
     def create_order_for_lesson(lesson)
       Order.create!(
         state: 'pending',
-        amount_cents: lesson.calendarupdate.price_cents / 2,
+        amount_cents: lesson.calendarupdate.price_cents / 4,
         user: lesson.user,
         lesson: lesson
       )

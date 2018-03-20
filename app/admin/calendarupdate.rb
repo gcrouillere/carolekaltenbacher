@@ -1,5 +1,5 @@
 ActiveAdmin.register Calendarupdate do
-  permit_params :period_start, :period_end, :available, :price_cents, :capacity
+  permit_params :period_start, :period_end, :available, :price_cents, :capacity, :name
   actions  :index, :new, :create, :destroy, :show
   menu priority: 4
   config.filters = false
@@ -10,6 +10,7 @@ ActiveAdmin.register Calendarupdate do
       f.input :period_end, as: :datepicker
       f.input :price_cents, :hint => "Prix en centimes d'euros. Ex: entrez 1200 pour un prix de 12 €"
       f.input :capacity
+      f.input :name
     end
     f.actions
   end
@@ -17,7 +18,7 @@ ActiveAdmin.register Calendarupdate do
   index_as_calendar ({:ajax => false}) do |calendarupdate|
     #Caractéristiques des évènements à afficher
 
-    calendarupdate.available ? dispo = "Stage avec places dispo" : dispo = "Stage complet"
+    calendarupdate.available ? dispo = "#{calendarupdate.name} - places dispo" : dispo = "#{calendarupdate.name} - complet"
 
     {
       title: "#{dispo}",
@@ -25,13 +26,16 @@ ActiveAdmin.register Calendarupdate do
       end: calendarupdate.period_end + 1.day,
       url: "#{admin_calendarupdate_path(calendarupdate)}",
       textColor: '#2A2827',
-      color: dispo ==  "Stage avec places dispo" ? '#8CE35E' : '#e37d5e'
+      color: calendarupdate.available ? '#8CE35E' : '#e37d5e'
     }
   end
 
   index do
     column :period_start
     column :period_end
+    column :available
+    column :capacity
+    column :name
     actions
   end
 

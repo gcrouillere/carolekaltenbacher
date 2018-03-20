@@ -2,7 +2,7 @@
 Mes céramiques sont en XXX. Le décor est composé de XXX. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des XXX ...
 <% end %>
 <% content_for(:title_tag) do %>
-  Les céramiques artisanales à vendre dans la boutique de Carole Kaltenbacher
+  Les céramiques artisanales à vendre dans la boutique de CaroleK.ceramique
 <% end %>
 <% if @front_offer %>
   <% content_for(:meta_image) do %>
@@ -21,31 +21,19 @@ Mes céramiques sont en XXX. Le décor est composé de XXX. Ma production est co
 <%= render 'shared/subscribe' %>
 
 <% content_for(:after_js) do %>
-  <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-
-  <!-- Initialize autocomplete menu -->
-  <script>
-  var algoliaAPPID = String('<%=ENV['ALGOLIAPPID']%>')
-  var algoliasearchKey = String('<%=ENV['ALGOLISEARCHKEY']%>')
-  var client = algoliasearch(algoliaAPPID, algoliasearchKey);
-  var index = client.initIndex('Ceramique');
-  //initialize autocomplete on search input (ID selector must match)
-  autocomplete('#aa-search-input',
-  { hint: false }, {
-      source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-      //value to be displayed in input control after user's suggestion selection
-      displayKey: 'name',
-      //hash of templates used when rendering dataset
-      templates: {
-          //'suggestion' templating function used to render a single suggestion
-          suggestion: function(suggestion) {
-            return '<span>' + suggestion._highlightResult.name.value + '</span>'
-            + '<span>' + suggestion._highlightResult.description.value + '</span>'
-            +'<span>' + suggestion._highlightResult.category.name.value + '</span>';
-          }
-      }
-  });
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "ArtGallery",
+    "name": "Les <%="céramiques de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+    "description": "Online craft store",
+    "openingHours": "Mo-F r 09:00-18:00",
+    "telephone": "<%= ENV['TELEPHONE']%>",
+    "url": "<%=request.original_url%>",
+    "image":"<%=request.original_url%><%= image_path ENV['HOMEPIC']%>",
+    "address":"<%= ENV['ADDRESS'].gsub(/[+]/, ' ')%>",
+    "priceRange":"20€ à 800€"
+  }
   </script>
 <% end %>
+

@@ -94,7 +94,7 @@ show do |ceramique|
   end
 
   def destroy
-    flash[:notice] = "#{ENV['MODEL'][0...-1].capitalize} supprimé"
+    flash[:notice] = "Produit supprimé"
     super do |format|
       redirect_to admin_produits_path and return
     end
