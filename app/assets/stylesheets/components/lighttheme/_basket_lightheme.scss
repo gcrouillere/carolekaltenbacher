@@ -72,7 +72,6 @@
   }
 
 .total-lighttheme {
-  float: right;
   margin-right: 30px;
   margin-top: 30px;
   h3, h5 {
@@ -80,7 +79,7 @@
     font-weight: 300;
   }
   h3 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 }
 
@@ -133,5 +132,21 @@
   }
   form {
     margin-bottom: 20px;
+  }
+}
+
+.pay-form-lighttheme.payment-form {
+  display: block;
+  float: right;
+  text-align: center;
+}
+
+.pay-form-lighttheme-mobile.payment-form {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 83%;
+  .input-label-take-away {
+    display: block;
   }
 }
