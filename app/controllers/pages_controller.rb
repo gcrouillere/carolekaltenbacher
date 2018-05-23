@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :contact, :cgv, :google906057532e2dbb7e, :robots]
+  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :contact, :google906057532e2dbb7e, :robots, :legal, :cgv]
 
   def home
     @ceramiques = Ceramique.last(4)
@@ -21,9 +21,12 @@ class PagesController < ApplicationController
     render "contact_#{@active_theme.name}"
   end
 
-  def cgv
+  def legal
     @dev_redirection = "https://www.creermonecommerce.fr/product_claim_details"
-    render "cgv_#{@active_theme.name}"
+  end
+
+  def cgv
+    @dev_redirection = "https://www.creermonecommerce.fr/produits"
   end
 
   def google906057532e2dbb7e

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/info', to: 'pages#info'
   get '/cgv', to: 'pages#cgv'
   get '/contact', to: 'pages#contact'
+  get '/cgv', to: 'pages#cgv'
+  get '/legal', to: 'pages#legal'
   get '/google906057532e2dbb7e', to: 'pages#google906057532e2dbb7e'
   get '/robots.txt', to: 'pages#robots', :defaults => { :format => 'txt' }
 

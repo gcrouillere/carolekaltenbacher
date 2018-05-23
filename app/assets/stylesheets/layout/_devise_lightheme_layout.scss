@@ -70,6 +70,12 @@
     .devise-bottom-link:hover {
       color: #bfbfbf;
     }
+    .user_consented {
+      a {
+        text-decoration: underline;
+        color: black;
+      }
+    }
   }
 }
 
