@@ -5,7 +5,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @user = @lesson.user
-    @order = Order.where(user: @user, state: "pending", lesson: @lesson).first
+    @order = Order.where(user: @user, state: ["pending", "payment page"], lesson: @lesson).first
   end
 
   def new

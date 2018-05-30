@@ -15,6 +15,19 @@ ActiveAdmin.register Calendarupdate do
     f.actions
   end
 
+  index do
+    column "Premier jour" do |calendarupdate|
+      calendarupdate.period_start.strftime("%d/%m/%Y")
+    end
+    column "Dernier jour" do |calendarupdate|
+      calendarupdate.period_end.strftime("%d/%m/%Y")
+    end
+    column :available
+    column :capacity
+    column :name
+    actions
+  end
+
   index_as_calendar ({:ajax => false}) do |calendarupdate|
     #Caractéristiques des évènements à afficher
 
@@ -28,15 +41,6 @@ ActiveAdmin.register Calendarupdate do
       textColor: '#2A2827',
       color: calendarupdate.available ? '#8CE35E' : '#e37d5e'
     }
-  end
-
-  index do
-    column :period_start
-    column :period_end
-    column :available
-    column :capacity
-    column :name
-    actions
   end
 
   show do |calendarupdate|
