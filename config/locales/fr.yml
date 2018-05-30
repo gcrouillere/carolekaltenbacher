@@ -41,7 +41,7 @@ fr:
       category:
         one: "Catégories"
         other: "Catégories"
-      calendarupdate: "Bloquage de période"
+      calendarupdate: "Ouverture de Stages"
       lesson:
         one: "Réservation"
         other: "Réservations"
@@ -88,8 +88,8 @@ fr:
   active_admin:
     models:
       calendarupdate:
-        one: "Bloquer des périodes dans le calendrier"
-        other: "Bloquer des périodes dans le calendrier"
+        one: "Stage"
+        other: "Stages"
     dashboard: Tableau de bord
     dashboard_welcome:
       welcome: "Welcome to Active Admin. This is the default dashboard page."

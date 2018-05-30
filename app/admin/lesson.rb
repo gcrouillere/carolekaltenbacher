@@ -8,7 +8,7 @@ ActiveAdmin.register Lesson do
   index do
     render 'current_week_lessons'
     column "Début" do |lesson|
-       "#{lesson.start.day} #{lesson.start.strftime("%B")} #{lesson.start.year}"
+       lesson.start.strftime("%d/%m/%Y")
     end
     column :student
     column "Client" do |lesson|
@@ -19,6 +19,7 @@ ActiveAdmin.register Lesson do
       order = Order.where(lesson: lesson).first
       order.present? ? order.state == "paid" : false
     end
+    actions
   end
 
   index_as_calendar ({:ajax => false}) do |lesson|
@@ -40,21 +41,6 @@ ActiveAdmin.register Lesson do
     }
   end
 
-  index do
-    column "Début" do |lesson|
-      lesson.start.strftime("%d/%m/%Y")
-    end
-    column :duration
-    column :user
-    column :student
-    column :confirmed
-    column "Payé ?" do |lesson|
-      order = Order.where(lesson: lesson).first
-      order.present? ? (order.state == "paid" ? "Oui" : "Non") : "Non"
-    end
-    actions
-  end
-
   show do |lesson|
     attributes_table do
       row "Début" do
@@ -74,7 +60,7 @@ ActiveAdmin.register Lesson do
 
     def index
       super do |format|
-        @current_week_lessons_a = Lesson.where("confirmed = ? AND start >= ?", true, Time.now - 20 * 3600 * 24).order(start: :asc)
+        @current_week_lessons_a = Lesson.where("confirmed = ? AND start >= ?", true, Time.now - 20 * 3600 * 24).joins(:order).order(start: :asc).where("lesson_id IS NOT NULL")
         @pending_lessons = Lesson.where("confirmed = ? AND start >= ?", false, Time.now)
         Lesson.all.each do |lesson|
           if !lesson.confirmed? && lesson.start < Time.now

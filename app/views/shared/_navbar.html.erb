@@ -27,7 +27,7 @@
         <%= link_to destroy_user_session_path, method: :delete do %>
           <span><i class="fa fa-sign-out"></i> Se déconnecter</span>
         <% end %>
-        <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.instagram.com/carolekceramique/?hl=fr" target="blank"><i class="fab fa-instagram"></i></a>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
