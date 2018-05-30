@@ -43,6 +43,7 @@ class UsersController < ApplicationController
       :city,
       :provider,
       :tracking,
+      :country,
       :uid,
       :facebook_picture_url,
       :token,
@@ -59,7 +60,6 @@ class UsersController < ApplicationController
       :darktheme4photo,
       :homerightphoto1,
       :homerightphoto2,
-      :country,
       infophotos: []
     )
   end
