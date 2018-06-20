@@ -95,7 +95,7 @@ ActiveAdmin.register Lesson do
     def destroy
       lesson = Lesson.find(params[:id].to_i)
       calendarupdate = lesson.calendarupdate
-      calendarupdate.update(capacity: calendarupdate.capacity + lesson.student)
+      calendarupdate.update(capacity: calendarupdate.capacity + lesson.student) if lesson.confirmed
       if calendarupdate.capacity > 0
         calendarupdate.update(available: true)
       end

@@ -67,7 +67,6 @@ ActiveAdmin.register Calendarupdate do
         flash[:alert] = "Impossible d'effectuer l'action : certains champs n'étaient pas remplis"
         redirect_to admin_calendarupdates_path and return
       end
-
       super do |format|
         Calendarupdate.last.update(available: true) if resource.valid?
         redirect_to admin_calendarupdates_path and return if resource.valid?
