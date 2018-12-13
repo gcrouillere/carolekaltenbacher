@@ -12,12 +12,12 @@ class PagesController < ApplicationController
   end
 
   def info
-    @dev_redirection = "https://www.creermonecommerce.fr/#anchor-info"
+    @dev_redirection = "https://www.creermonecommerce.fr/product_claim_details"
     render "info_#{@active_theme.name}"
   end
 
   def contact
-    @dev_redirection = "https://www.creermonecommerce.fr/produits"
+    @dev_redirection = "https://www.creermonecommerce.fr/realisations"
     render "contact_#{@active_theme.name}"
   end
 

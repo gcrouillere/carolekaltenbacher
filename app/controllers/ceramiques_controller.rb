@@ -23,7 +23,7 @@ class CeramiquesController < ApplicationController
 
   def show
     session[:zoom_message] ? session[:zoom_message] += 1 : session[:zoom_message] = 0
-    @dev_redirection = "https://www.creermonecommerce.fr/produits"
+    @dev_redirection = "https://www.creermonecommerce.fr/realisations"
     clean_orders
     @ceramique = Ceramique.find(params[:id])
     @same_category_products = @ceramique.category.ceramiques - [@ceramique]
