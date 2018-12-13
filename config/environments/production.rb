@@ -70,7 +70,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+  config.i18n.fallbacks = [I18n.default_locale]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -103,9 +103,9 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  Dynopoker.configure do |config|
-    config.address = 'https://carolekaltenbacher.herokuapp.com'
-    config.poke_frequency = 600 # default is 1800s (30min)
-  end
+  # Dynopoker.configure do |config|
+  #   config.address = 'https://carolekaltenbacher.herokuapp.com'
+  #   config.poke_frequency = 600 # default is 1800s (30min)
+  # end
 
 end
