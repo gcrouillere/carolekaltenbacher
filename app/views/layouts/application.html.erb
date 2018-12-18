@@ -16,7 +16,7 @@
     <meta property="fb:app_id" content="<%=ENV['FB_ID']%>"/>
     <!-- Twitter image -->
     <meta name="twitter:image:src" content="<%= meta_image %>">
-
+    <%= meta_no_index %>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
