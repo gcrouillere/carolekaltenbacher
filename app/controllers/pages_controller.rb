@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @ceramiques = Ceramique.last(4)
-    @dev_redirection = "https://www.creermonecommerce.fr/"
+    @dev_redirection = "https://www.guillaumecrouillere.fr"
     render "home_#{@active_theme.name}"
   end
 
@@ -12,21 +12,21 @@ class PagesController < ApplicationController
   end
 
   def info
-    @dev_redirection = "https://www.creermonecommerce.fr/product_claim_details"
+    @dev_redirection = "https://www.guillaumecrouillere.fr"
     render "info_#{@active_theme.name}"
   end
 
   def contact
-    @dev_redirection = "https://www.creermonecommerce.fr/realisations"
+    @dev_redirection = "https://www.guillaumecrouillere.fr"
     render "contact_#{@active_theme.name}"
   end
 
   def legal
-    @dev_redirection = "https://www.creermonecommerce.fr/product_claim_details"
+    @dev_redirection = "https://www.guillaumecrouillere.fr"
   end
 
   def cgv
-    @dev_redirection = "https://www.creermonecommerce.fr/produits"
+    @dev_redirection = "https://www.guillaumecrouillere.fr"
   end
 
   def google906057532e2dbb7e

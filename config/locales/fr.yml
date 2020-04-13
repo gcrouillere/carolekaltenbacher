@@ -159,7 +159,9 @@ fr:
       category:
         one: "Catégorie"
         other: "Catégories"
-      calendarupdate: "Bloquage de période"
+      calendarupdate:
+        one: "Stage"
+        other: "Stages"
       lesson:
         one: "Réservation"
         other: "Réservations"
