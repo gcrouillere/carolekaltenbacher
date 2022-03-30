@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/activeadmin/inherited_resources.git
-  revision: 7f86f6044e050350188a85e00543929afbcd1652
+  remote: https://github.com/activeadmin/inherited_resources.git
+  revision: 7aa75df12a3fa125a062d4b6f9309a8254f5dd7d
   specs:
     inherited_resources (1.9.0)
       actionpack (>= 5.0, < 5.3)
@@ -9,7 +9,7 @@ GIT
       responders
 
 GIT
-  remote: git://github.com/bys-control/activeadmin-index_as_calendar.git
+  remote: https://github.com/bys-control/activeadmin-index_as_calendar.git
   revision: 1e07d605b536f4f9a89c054f34910728f46d3871
   specs:
     activeadmin-index_as_calendar (0.0.13)
@@ -19,8 +19,12 @@ GIT
       rails (>= 4)
 
 GEM
-  remote: https://rubygems.org/
   remote: https://rails-assets.org/
+  specs:
+    rails-assets-underscore (1.9.1)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.2.2)
       actionpack (= 5.2.2)
@@ -274,7 +278,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -291,7 +296,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.2)
       sprockets-rails (>= 2.0.0)
-    rails-assets-underscore (1.9.1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
